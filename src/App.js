@@ -17,7 +17,7 @@ const initialLetterObjectArray = [
 function LetterSelectList(props) {
   const letters = props.letterObjectArray.map(letterObjectPair => letterObjectPair[0]);
   const letterButtons = letters.map((letter, index) =>
-    <button id={index} value={letter} onClick={props.onClick} className={props.selected === letter ? "selected" : ""}>{letter}</button>
+    <button id={index} value={letter} onClick={props.onClick} className={props.selected === letter ? "selected" : ""} type="letter" >{letter}</button>
   );
   
   return (
@@ -38,7 +38,7 @@ function ObjectSelectList(props) {
     };
     
     return (
-      <button id={index} className={props.selected === pair[0] ? "selected" : ""} value={pair[0]} onClick={props.onClick} style={objectButtonStyle}></button>
+      <button id={index} className={props.selected === pair[0] ? "selected" : ""} value={pair[0]} type="object" onClick={props.onClick} style={objectButtonStyle}></button>
     )
   });
   
@@ -60,37 +60,18 @@ class App extends React.Component {
       selectedObject: ""
     };
 
-    this.handleLetterClick = this.handleLetterClick.bind(this);
-    this.handleObjectClick = this.handleObjectClick.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
     this.resetGame = this.resetGame.bind(this);
   }
 
-  handleLetterClick(event) {
-    let buttonValue = event.target.value;
+  handleButtonClick(event) {
+    const buttonValue = event.target.value;
+    const isLetter = (event.target.getAttribute("type") === "letter")
 
-    if (buttonValue !== this.state.selectedLetter) {
-      this.setState({selectedLetter: buttonValue}, () => {
-        if (this.state.selectedLetter === this.state.selectedObject) {
-          const newLetterObjectArray = this.state.letterObjectArray.filter(pair => pair[0] !== buttonValue);
-          
-          this.setState({
-            selectedLetter: "",
-            selectedObject: "",
-            letterObjectArray: newLetterObjectArray,
-          })
-        }
-      });
-    } else {
-      this.setState({selectedLetter: ""});
-    }
-  }
+    const initialStateValue = (isLetter ? this.state.selectedLetter : this.state.selectedObject);
 
-  handleObjectClick(event) {
-    let buttonValue = event.target.value;
-    console.log(event.target.value);
-
-    if (buttonValue !== this.state.selectedObject) {
-      this.setState({selectedObject: buttonValue}, () => {
+    if (buttonValue !== initialStateValue) {
+      this.setState((isLetter ? {selectedLetter: buttonValue} : {selectedObject : buttonValue}), () => {
         if (this.state.selectedLetter === this.state.selectedObject) {
           const newLetterObjectArray = this.state.letterObjectArray.filter(pair => pair[0] !== buttonValue);
 
@@ -102,7 +83,7 @@ class App extends React.Component {
         }
       });
     } else {
-      this.setState({selectedObject: ""});
+      this.setState((isLetter ? {selectedLetter: ""} : {selectedObject: ""}));
     }
   }
 
@@ -119,11 +100,11 @@ class App extends React.Component {
           <h1>Alphabet Match!</h1>
           <div id="letter-select">
             <p>Pick a letter!</p>
-            <LetterSelectList onClick={this.handleLetterClick} selected={this.state.selectedLetter} letterObjectArray={this.state.letterObjectArray} />
+            <LetterSelectList onClick={this.handleButtonClick} selected={this.state.selectedLetter} letterObjectArray={this.state.letterObjectArray} />
           </div>
           <div id="letter-select">
             <p>Pick an object!</p>
-            <ObjectSelectList onClick={this.handleObjectClick} selected={this.state.selectedObject} letterObjectArray={this.state.letterObjectArray} />
+            <ObjectSelectList onClick={this.handleButtonClick} selected={this.state.selectedObject} letterObjectArray={this.state.letterObjectArray} />
           </div>
   
           <p>Selected Letter: {this.state.selectedLetter === "" ? "None" : this.state.selectedLetter}</p>
