@@ -126,8 +126,8 @@ class App extends React.Component {
             <ObjectSelectList onClick={this.handleObjectClick} selected={this.state.selectedObject} letterObjectArray={this.state.letterObjectArray} />
           </div>
   
-          <p>{this.state.selectedLetter}</p>
-          <p>{this.state.selectedObject}</p>
+          <p>Selected Letter: {this.state.selectedLetter === "" ? "None" : this.state.selectedLetter}</p>
+          <p>Number of letters left: {this.state.letterObjectArray.length}</p>
         </div>
       );
     } else {
