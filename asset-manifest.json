@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/vce-softdev-folio1/static/css/main.e2431350.chunk.css",
-    "main.js": "/vce-softdev-folio1/static/js/main.67f225bd.chunk.js",
-    "main.js.map": "/vce-softdev-folio1/static/js/main.67f225bd.chunk.js.map",
+    "main.js": "/vce-softdev-folio1/static/js/main.331d0e62.chunk.js",
+    "main.js.map": "/vce-softdev-folio1/static/js/main.331d0e62.chunk.js.map",
     "runtime-main.js": "/vce-softdev-folio1/static/js/runtime-main.9439a8f0.js",
     "runtime-main.js.map": "/vce-softdev-folio1/static/js/runtime-main.9439a8f0.js.map",
     "static/js/2.023c121e.chunk.js": "/vce-softdev-folio1/static/js/2.023c121e.chunk.js",
     "static/js/2.023c121e.chunk.js.map": "/vce-softdev-folio1/static/js/2.023c121e.chunk.js.map",
     "index.html": "/vce-softdev-folio1/index.html",
-    "precache-manifest.d0f09166e93eb0b4f95bd512b9d21ee8.js": "/vce-softdev-folio1/precache-manifest.d0f09166e93eb0b4f95bd512b9d21ee8.js",
+    "precache-manifest.839fded6116cb63cb8a6422fae6ceb04.js": "/vce-softdev-folio1/precache-manifest.839fded6116cb63cb8a6422fae6ceb04.js",
     "service-worker.js": "/vce-softdev-folio1/service-worker.js",
     "static/css/main.e2431350.chunk.css.map": "/vce-softdev-folio1/static/css/main.e2431350.chunk.css.map",
     "static/js/2.023c121e.chunk.js.LICENSE.txt": "/vce-softdev-folio1/static/js/2.023c121e.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.9439a8f0.js",
     "static/js/2.023c121e.chunk.js",
     "static/css/main.e2431350.chunk.css",
-    "static/js/main.67f225bd.chunk.js"
+    "static/js/main.331d0e62.chunk.js"
   ]
 }
